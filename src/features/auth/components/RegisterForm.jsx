@@ -13,7 +13,6 @@ import Alert from "../../../shared/components/Alert";
 const RegisterForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const [error, setError] = useState(null);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isPasswordConfirmationVisible, setIsPasswordConfirmationVisible] =

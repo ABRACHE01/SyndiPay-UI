@@ -16,8 +16,15 @@ import InfoIcon from "./InfoIcon";
 import SuccessIcon from "./SuccessIcon";
 import CloseIcon from "./CloseIcon";
 import DeliveryManMarker from "./DeliveryManMarker";
-
+import {EditIcon} from "./EditIcon";
+import {DeleteIcon} from "./DeleteIcon";
+import {EyeIcon} from "./EyeIcon";
+import { VerticalDotsIcon } from "./VerticalDotsIcon";
 export {
+  EyeIcon,
+  VerticalDotsIcon,
+  EditIcon,
+  DeleteIcon,
   VerifiedIcon,
   RightArrowIcon,
   FireIcon,

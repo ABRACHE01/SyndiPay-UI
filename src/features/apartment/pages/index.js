@@ -1,3 +1,3 @@
 import ApartmentsPage from "./ApartmentsPage";
-
-export { ApartmentsPage };
+import ApartmentDetails from "./ApartmentDetails"
+export { ApartmentsPage, ApartmentDetails};

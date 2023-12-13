@@ -9,7 +9,6 @@ import {
   User,
   DropdownMenu,
   DropdownItem,
-  button,
 } from "@nextui-org/react";
 
 import { Link } from "react-router-dom";
@@ -46,12 +45,7 @@ function Header() {
 
         { isLoggedIn ? (
           <>
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
-              <NavbarItem as={Link}  to="">  
-                      Dashboard
-              </NavbarItem>
-            </NavbarContent>
-
+         
             <NavbarContent as="div" justify="end">
               <Dropdown placement="bottom-end">
                 <DropdownTrigger>
