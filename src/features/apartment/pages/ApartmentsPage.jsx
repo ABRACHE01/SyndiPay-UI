@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { VerticalDotsIcon } from "../../../assets/icons";
 import { useNavigate } from "react-router-dom";
 import { CustomModal, CustomCard, Spinner } from "../../../shared/components";
@@ -20,7 +19,6 @@ import {
 } from "@nextui-org/react";
 import {
   useCreateApartmentMutation,
-  useGetApartmentByIdQuery,
   useDeleteApartmentMutation,
   useGetAllApartmentsQuery,
 } from "../redux/apartmentApiSlice";
@@ -30,13 +28,13 @@ import UpdateApartmentForm from "../components/UpdateApartmentForm";
 export default function ApartmentsPage() {
   const [selectedApartment, setSelectedApartment] = useState(null);
   const [apartmentData, setApartmentData] = useState(null);
+  console.log(apartmentData)
 
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
 
   const {
     data: apartments,
     isSuccess,
-    isLoading,
     refetch,
   } = useGetAllApartmentsQuery();
   const [createApartment] = useCreateApartmentMutation();
@@ -81,30 +79,28 @@ export default function ApartmentsPage() {
           Hi, you can create your own apartments
         </h1>
         <div className="text-3xl">
-          <Button onPress={onOpen}>Add Apartment</Button>
-          <CustomModal
-            isOpen={isOpen && !selectedApartment}
-            onOpenChange={onOpenChange}
-            title="Insert an apartment"
-            content={
-              <AddApartmentForm
-                onClose={onClose}
-                onSubmit={handleAddApartment}
-              />
-            }
-          />
-          <CustomModal
-            isOpen={isOpen && selectedApartment}
-            onOpenChange={onOpenChange}
-            title="Edit an apartment"
-            content={
-              <UpdateApartmentForm
-                onClose={onClose}
-                refetch={refetch}
-                selectedApartment={selectedApartment}
-              />
-            }
-          />
+        <Button onPress={onOpen}>Add Apartment</Button>
+            <CustomModal
+              isOpen={isOpen && !selectedApartment}
+              onOpenChange={onOpenChange}
+              title="Insert an apartment"
+              content={
+                <AddApartmentForm onClose={onClose} onSubmit={handleAddApartment} />
+              }
+            />
+            
+            <CustomModal
+              isOpen={isOpen && selectedApartment}
+              onOpenChange={onOpenChange}
+              title="Edit an apartment"
+              content={
+                <UpdateApartmentForm
+                  onClose={onClose}
+                  refetch={refetch}
+                  selectedApartment={selectedApartment}
+                />
+              }
+            />
         </div>
       </div>
 
@@ -127,8 +123,8 @@ export default function ApartmentsPage() {
               </DropdownTrigger>
               <DropdownMenu>
               <DropdownItem onClick={() => openEditApartment(apartment)}>
-                      Edit
-                    </DropdownItem>
+                  Edit
+                </DropdownItem>
                     <DropdownItem
                       color="danger"
                       onClick={() => handleDeleteApartment(apartment._id)}
@@ -164,22 +160,22 @@ export default function ApartmentsPage() {
               </CardFooter>
               <div className="p-6">
                 <div className="flex justify-between items-center">
-                  <div className="flex items-center">
+                 {apartment.clients[0] && <div className="flex items-center">
                     <Avatar
                       alt="Avatar"
                       name={
-                        apartment.client?.firstName +
+                        apartment.clients[0]?.firstName +
                         " " +
-                        apartment.client?.lastName
+                        apartment.clients[0]?.lastName
                       }
                       className="w-8 h-8 rounded-full mr-2 object-cover"
                     />
                     <span className="text-gray-800 font-semibold">
-                      {apartment.client?.firstName +
+                      {apartment.clients[0]?.firstName +
                         " " +
-                        apartment.client?.lastName}
+                        apartment.clients[0]?.lastName}
                     </span>
-                  </div>
+                  </div>}
                   <div className="flex justify-between"></div>
                 </div>
               </div>

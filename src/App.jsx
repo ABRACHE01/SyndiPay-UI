@@ -7,6 +7,7 @@ import ApartmentRoutes from "./features/apartment/routes/ApartmentRoutes";
 import { AuthMiddleware } from "./features/auth/middlewares";
 import LandingPage from "./shared/pages/LandingPage";
 import Dashboard from "./shared/pages/Dashboard"
+import ClientRoutes from "./features/client/routes/ClientRoutes";
 
 
 function App() {
@@ -31,6 +32,15 @@ function App() {
           element={
             <AuthMiddleware>
               <Dashboard/>
+            </AuthMiddleware>
+          }
+        />
+
+        <Route
+          path="/clients/*"
+          element={
+            <AuthMiddleware>
+              <ClientRoutes/>
             </AuthMiddleware>
           }
         />
