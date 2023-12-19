@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { VerticalDotsIcon } from "../../../assets/icons";
 import { useNavigate } from "react-router-dom";
-import { CustomModal, CustomCard, Spinner } from "../../../shared/components";
+import { CustomModal , Spinner } from "../../../shared/components";
 import {
   Card,
   CardBody,
@@ -17,6 +17,7 @@ import {
   DropdownItem,
   Chip,
 } from "@nextui-org/react";
+
 import {
   useCreateApartmentMutation,
   useDeleteApartmentMutation,
@@ -28,7 +29,6 @@ import UpdateApartmentForm from "../components/UpdateApartmentForm";
 export default function ApartmentsPage() {
   const [selectedApartment, setSelectedApartment] = useState(null);
   const [apartmentData, setApartmentData] = useState(null);
-  console.log(apartmentData)
 
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
 
@@ -74,7 +74,9 @@ export default function ApartmentsPage() {
 
   return (
     <>
-      <div className="text-center p-10">
+     <div className="h-[80vh] p-4 m-4 border-2 border-gray-200 border-dashed rounded-lg  ">
+      
+      <div className="text-center p-10 ">
         <h1 className="font-bold text-4xl mb-4">
           Hi, you can create your own apartments
         </h1>
@@ -107,6 +109,7 @@ export default function ApartmentsPage() {
       <div className="gap-5 grid grid-cols-2 sm:grid-cols-4 mx-5">
         {apartmentData &&
           apartmentData.map((apartment, index) => (
+            
             <Card
               shadow="sm"
               key={index}
@@ -120,8 +123,8 @@ export default function ApartmentsPage() {
                 <Button isIconOnly size="sm" variant="light">
                   <VerticalDotsIcon className="text-default-300" />
                 </Button>
-              </DropdownTrigger>
-              <DropdownMenu>
+              </DropdownTrigger>  
+              <DropdownMenu aria-label="Client Actions">
               <DropdownItem onClick={() => openEditApartment(apartment)}>
                   Edit
                 </DropdownItem>
@@ -150,17 +153,17 @@ export default function ApartmentsPage() {
                 <div>{apartment.building}</div>
                 <div className="text-default-500">
                   {apartment.isOccupied ? (
-                    <Chip size="sm" color="danger">
+                    <Chip size="sm" color="success">
                       Occupied
                     </Chip>
                   ) : (
-                    <Chip color="success">Vacant</Chip>
+                    <Chip  color="danger">Vacant</Chip>
                   )}
                 </div>
               </CardFooter>
               <div className="p-6">
                 <div className="flex justify-between items-center">
-                 {apartment.clients[0] && <div className="flex items-center">
+                 {apartment?.clients && apartment?.clients[0] && <div className="flex items-center">
                     <Avatar
                       alt="Avatar"
                       name={
@@ -182,6 +185,7 @@ export default function ApartmentsPage() {
             </Card>
           ))}
       </div>
+    </div>
     </>
   );
 }

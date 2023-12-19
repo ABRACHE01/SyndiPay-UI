@@ -39,26 +39,26 @@ const UpdatePaymentForm = ({ onClose, selectedPayment, refetch , apartmentId }) 
         className="px-2 p-2"
         placeholder="Enter Amount"
         onChange={formik.handleChange}
-        value={formik.values.amount}
+        value={formik.values.amount || ""}
         errorMessage={
           formik.touched.amount && formik.errors.amount && formik.errors.amount
         }
       />
 
-      <Input
-        type="date"
-        name="paymentDate"
-        label="Payment Date"
-        variant="bordered"
-        className="px-2 p-2"
-        onChange={formik.handleChange}
-        value={formik.values.paymentDate}
-        errorMessage={
-          formik.touched.paymentDate &&
-          formik.errors.paymentDate &&
-          formik.errors.paymentDate
-        }
-      />
+<Input
+  type="date"
+  name="paymentDate"
+  label="Payment Date"
+  variant="bordered"
+  className="px-2 p-2"
+  onChange={formik.handleChange}
+  value={formik.values.paymentDate ? formik.values.paymentDate.slice(0, 10) : ""}
+  errorMessage={
+    formik.touched.paymentDate &&
+    formik.errors.paymentDate &&
+    formik.errors.paymentDate
+  }
+/>
 
       <Input
         type="text"
@@ -68,7 +68,7 @@ const UpdatePaymentForm = ({ onClose, selectedPayment, refetch , apartmentId }) 
         className="px-2 p-2"
         placeholder="Enter Payment Method"
         onChange={formik.handleChange}
-        value={formik.values.paymentMethod}
+        value={formik.values.paymentMethod || ""}
         errorMessage={
           formik.touched.paymentMethod &&
           formik.errors.paymentMethod &&
@@ -83,7 +83,7 @@ const UpdatePaymentForm = ({ onClose, selectedPayment, refetch , apartmentId }) 
         variant="bordered"
         className="px-2 p-2"
         onChange={formik.handleChange}
-        checked={formik.values.isPaid}
+        checked={formik.values.isPaid || ""}
       />
 
       <Input
@@ -94,7 +94,7 @@ const UpdatePaymentForm = ({ onClose, selectedPayment, refetch , apartmentId }) 
         className="px-2 p-2"
         placeholder="Enter Receipt Number"
         onChange={formik.handleChange}
-        value={formik.values.receiptNumber}
+        value={formik.values.receiptNumber || ""}
         errorMessage={
           formik.touched.receiptNumber &&
           formik.errors.receiptNumber &&
@@ -110,7 +110,7 @@ const UpdatePaymentForm = ({ onClose, selectedPayment, refetch , apartmentId }) 
         className="px-2 p-2"
         placeholder="Enter Notes"
         onChange={formik.handleChange}
-        value={formik.values.notes}
+        value={formik.values.notes || ""}
         errorMessage={
           formik.touched.notes && formik.errors.notes && formik.errors.notes
         }

@@ -42,6 +42,32 @@ function Header() {
             <Link to="/" >SyndiPay</Link>
           </p>
         </NavbarBrand>
+        
+        { 
+        isLoggedIn && 
+          <>
+        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarItem>
+          <Link color="foreground" to="/dashboard">
+            Dashboard
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" to="/apartments">
+            Apartments
+          </Link>
+        </NavbarItem>
+        <NavbarItem >
+          <Link to="/clients" aria-current="page">
+            Clients
+          </Link>
+        </NavbarItem>
+    
+      </NavbarContent>
+      </>
+      }
+          
+          
 
         { isLoggedIn ? (
           <>
@@ -67,24 +93,6 @@ function Header() {
                   >
                     <p className="font-semibold">Signed in as </p>
                     <p className="font-semibold text-success-500 ">{user.roles[0]}</p>
-                  </DropdownItem>
-
-                  <DropdownItem key="settings" textValue="My Settings">
-                    <Link color="foreground" 
-                    to=""
-                    >
-                      Profile
-                    </Link>
-                  </DropdownItem>
-
-                  <DropdownItem
-                    key="reset Password"
-                    color="success"
-                    textValue="reset Password"
-                  >
-                    <Link olor="foreground" >
-                      reset password
-                    </Link>
                   </DropdownItem>
 
                   <DropdownItem key="logout" color="danger" textValue="Log Out">

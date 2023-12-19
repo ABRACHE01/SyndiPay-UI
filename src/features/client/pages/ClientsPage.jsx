@@ -10,6 +10,7 @@ import {
 
 import {
   Table,
+  Chip,
   TableHeader,
   TableColumn,
   TableBody,
@@ -22,7 +23,7 @@ import {
   DropdownTrigger,
   useDisclosure
 } from "@nextui-org/react";
-import { format, formatDistanceToNow } from 'date-fns';
+import {  formatDistanceToNow } from 'date-fns';
 import AddClientForm from "../components/AddClientForm";
 import UpdateClientForm from "../components/UpdateClientForm";
 
@@ -140,7 +141,7 @@ export default function ClientsPage() {
                 <TableCell>
                   {formatDistanceToNow(new Date(client.createdAt))}
                 </TableCell>
-                <TableCell>{client.isActiveResident ? "Yes" : "No"}</TableCell>
+                <TableCell>{<Chip color={ client.isActiveResident ? "success" : "danger"}> { client.isActiveResident ? "Resedent" : "Not resedent"}</Chip> }</TableCell>
                 <TableCell>
                   <div className="relative flex justify-end items-center gap-2">
                     <Dropdown>

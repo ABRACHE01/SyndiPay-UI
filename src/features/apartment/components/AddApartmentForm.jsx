@@ -33,7 +33,7 @@ const AddApartmentForm = ({ onSubmit, onClose }) => {
       paymentAmount: "",
       paymentFrequency: "",
       paymentDueDate: "",
-      clients: null,
+      clients: "",
     },
     validationSchema: addApartmentSchema,
     onSubmit: (values) => {

@@ -1,5 +1,6 @@
 import React from "react";
-import {Listbox, ListboxItem, ListboxSection, cn} from "@nextui-org/react";
+import {Listbox, ListboxItem} from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
 
  const ListboxWrapper = ({children}) => (
@@ -13,40 +14,26 @@ export default function List() {
   return (
     <ListboxWrapper>
       <Listbox variant="flat" aria-label="Listbox menu with sections">
-        <ListboxSection title="Actions" showDivider>  
           <ListboxItem
             key="new"
-            description="Create a new file"
+            description="Client SEction"
             startContent=""
           >
+            <Link to="/clients">
             Clients
+            </Link>
+            
           </ListboxItem>
           <ListboxItem
             key="copy"
-            description="Copy the file link"
+            description="Apartment section"
             startContent=""
           >
+            <Link to="/apartments">
             Appartments
+            </Link>
           </ListboxItem>
-          <ListboxItem
-            key="edit"
-            description="Allows you to edit the file"
-            startContent=""
-          >
-            Payments
-          </ListboxItem>
-        </ListboxSection> 
-        <ListboxSection title="Danger zone">  
-          <ListboxItem
-            key="delete"
-            className="text-danger"
-            color="danger"
-            description="Permanently delete the file"
-            startContent=""
-          >
-            Delete file
-          </ListboxItem>
-        </ListboxSection> 
+   
       </Listbox>
     </ListboxWrapper>
   );

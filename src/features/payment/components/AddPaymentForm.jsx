@@ -11,8 +11,8 @@ const AddPaymentForm = ({ onSubmit, onClose , apartmentId }) => {
       paymentDate: "",
       paymentMethod: "",
       isPaid: false,
-      receiptNumber: null,
-      notes: null,
+      receiptNumber: "",
+      notes: "",
     },
     validationSchema: addPaymentSchema,
     onSubmit: (values) => {

@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router";
 import { RootLayout } from "./shared/layouts";
 import { NotFoundPage } from "./shared/pages";
 import AuthRoutes from "./features/auth/routes/AuthRoutes";
-import MailRoutes from "./features/mail/routes/MailRoutes";
 import ApartmentRoutes from "./features/apartment/routes/ApartmentRoutes";
 import { AuthMiddleware } from "./features/auth/middlewares";
 import LandingPage from "./shared/pages/LandingPage";
@@ -17,7 +16,6 @@ function App() {
       <Route path="/" element={<RootLayout />}>
         <Route index element={<LandingPage/>} />
         <Route path="/auth/*" element={<AuthRoutes />} />
-        <Route path="/mail/*" element={<MailRoutes />} />
         
         <Route 
         path="/apartments/*" 
