@@ -1,8 +1,39 @@
-# React + Vite
+# SyndiPay-UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to SyndiPay-UI! This repository contains the user interface components for the SyndiPay project. SyndiPay is a payment management system designed to streamline financial transactions within organizations. The SyndiPay-UI provides a user-friendly interface for interacting with the system.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To install and run SyndiPay-UI on your local machine, please follow these steps:
+
+### Prerequisites
+
+Before getting started, ensure that you have the following prerequisites installed:
+
+- Node.js (v12 or higher)
+- npm (Node Package Manager)
+- Git
+
+### Step 1: Clone the repository
+
+```shell
+git clone https://github.com/ABRACHE01/SyndiPay-UI.git
+```
+
+```sh
+cd SyndiPay-UI
+```
+
+### Step 2 : Install dependencies
+
+```sh
+npm install
+```
+
+## Step 3 : run the project
+
+```sh
+npm irun dev 
+```
+
+
