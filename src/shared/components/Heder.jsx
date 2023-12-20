@@ -35,7 +35,7 @@ function Header() {
 
   return (
     <>
-      <Navbar shouldHideOnScroll >
+      <Navbar shouldHideOnScroll  isBordered >
         <NavbarBrand>
           <p className="font-bold">
             {""}

@@ -140,13 +140,12 @@ export default function ApartmentsPage() {
               </CardHeader>
 
               <CardBody className="overflow-visible py-2">
-                <Image
+                <Avatar
                   shadow="sm"
                   radius="lg"
                   width="100%"
-                  alt={apartment.name}
                   className="w-full object-cover h-[140px]"
-                  src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
+                  name={apartment.name}
                 />
               </CardBody>
               <CardFooter className="text-small justify-between">
